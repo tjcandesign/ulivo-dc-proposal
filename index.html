@@ -109,40 +109,28 @@
     .fade-in--delay-5 { transition-delay: 0.5s; }
 
     /* =============================================
-       CONFIDENTIAL BANNER
+       CONFIDENTIAL SIDEBAR
     ============================================= */
-    #confidential-banner {
+    #confidential-sidebar {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
+      right: 20px;
       z-index: 101;
-      background: var(--gold);
-      height: 28px;
-      overflow: hidden;
+      height: 100vh;
       display: flex;
       align-items: center;
+      pointer-events: none;
     }
 
-    .banner-track {
-      display: flex;
-      white-space: nowrap;
-      animation: bannerScroll 20s linear infinite;
-    }
-
-    .banner-text {
-      font-family: 'Courier New', Courier, monospace;
+    .sidebar-text {
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--charcoal);
-      padding: 0 3rem;
-    }
-
-    @keyframes bannerScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      color: var(--gold);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
     }
 
     /* =============================================
@@ -150,7 +138,7 @@
     ============================================= */
     #site-nav {
       position: fixed;
-      top: 28px;
+      top: 0;
       left: 0;
       right: 0;
       z-index: 100;
@@ -1519,27 +1507,10 @@
 <body>
 
   <!-- =============================================
-       CONFIDENTIAL BANNER
+       CONFIDENTIAL SIDEBAR
   ============================================= -->
-  <div id="confidential-banner">
-    <div class="banner-track">
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-      <span class="banner-text">Confidential & Proprietary</span>
-    </div>
+  <div id="confidential-sidebar">
+    <span class="sidebar-text">Confidential & Proprietary</span>
   </div>
 
   <!-- =============================================
