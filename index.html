@@ -109,25 +109,52 @@
     .fade-in--delay-5 { transition-delay: 0.5s; }
 
     /* =============================================
-       CONFIDENTIAL SIDEBAR
+       CONFIDENTIAL BAR
     ============================================= */
-    #confidential-sidebar {
+    #confidential-bar {
       position: fixed;
-      top: 80px;
-      right: 20px;
-      z-index: 101;
-      pointer-events: none;
+      top: 60px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: var(--gold);
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .sidebar-text {
+    .confidential-bar-text {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+      color: var(--charcoal);
+    }
+
+    .confidential-nav-text {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #confidential-bar {
+        display: none;
+      }
+
+      .confidential-nav-text {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 0.6rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .nav-links {
+        display: none;
+      }
     }
 
     /* =============================================
@@ -187,7 +214,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 140px 0 100px;
+      padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
       background: url('images/dining-room.jpg') center center / cover no-repeat;
@@ -1504,10 +1531,10 @@
 <body>
 
   <!-- =============================================
-       CONFIDENTIAL SIDEBAR
+       CONFIDENTIAL BAR (desktop)
   ============================================= -->
-  <div id="confidential-sidebar">
-    <span class="sidebar-text">Confidential & Proprietary</span>
+  <div id="confidential-bar">
+    <span class="confidential-bar-text">Confidential & Proprietary</span>
   </div>
 
   <!-- =============================================
@@ -1515,6 +1542,7 @@
   ============================================= -->
   <nav id="site-nav" role="navigation" aria-label="Proposal navigation">
     <span class="nav-wordmark">Ulivo DC</span>
+    <span class="confidential-nav-text">Confidential & Proprietary</span>
     <ul class="nav-links" id="nav-links">
       <li><a href="#challenge" data-section="challenge">Challenge</a></li>
       <li><a href="#opportunity" data-section="opportunity">Opportunity</a></li>
