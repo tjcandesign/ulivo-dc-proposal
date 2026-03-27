@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ulivo DC — Marketing Proposal 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:    #1a1a1a;
+      --charcoal-mid: #242424;
+      --charcoal-light: #2e2e2e;
+      --cream:       #f5f0e8;
+      --cream-dim:   #ede7d8;
+      --olive:       #6b7c5e;
+      --olive-light: #8a9e79;
+      --olive-dim:   #4e5c44;
+      --burgundy:    #722f37;
+      --burgundy-light: #8f3c46;
+      --gold:        #c9a96e;
+      --text-primary: #f5f0e8;
+      --text-muted:  #c4b89e;
+      --text-dark:   #1a1a1a;
+      --border:      rgba(245,240,232,0.1);
+      --border-warm: rgba(201,169,110,0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+    h4 { font-size: 1.1rem; font-weight: 500; }
+
+    p { color: rgba(245, 240, 232, 0.92); line-height: 1.8; }
+    strong { color: var(--cream); font-weight: 600; }
+
+    .serif-italic { font-style: italic; }
+    .gold { color: var(--gold); }
+    .olive-text { color: var(--olive-light); }
+    .cream { color: var(--cream); }
+    .muted { color: var(--text-muted); }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .container--wide {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    /* =============================================
+       FADE-IN ANIMATIONS
+    ============================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in--delay-1 { transition-delay: 0.1s; }
+    .fade-in--delay-2 { transition-delay: 0.2s; }
+    .fade-in--delay-3 { transition-delay: 0.3s; }
+    .fade-in--delay-4 { transition-delay: 0.4s; }
+    .fade-in--delay-5 { transition-delay: 0.5s; }
+
+    /* =============================================
+       STICKY NAV
+    ============================================= */
+    #site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(26, 26, 26, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cream);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 0 100px;
+      position: relative;
+      overflow: hidden;
+      background: url('images/dining-room.jpg') center center / cover no-repeat;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26, 26, 26, 0.92) 50%, rgba(26, 26, 26, 0.75));
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-headline {
+      max-width: 780px;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-headline em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-subline {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      margin-bottom: 2rem;
+    }
+
+    .hero-body {
+      max-width: 560px;
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-divider {
+      width: 64px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 3rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .hero-meta-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.4;
+    }
+
+    .hero-scroll-hint span {
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .scroll-arrow {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+    }
+
+    /* =============================================
+       SECTION HEADERS
+    ============================================= */
+    .section-number {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-number::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title em {
+      color: var(--gold);
+    }
+
+    .section-intro {
+      max-width: 600px;
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    /* =============================================
+       SECTION 1: THE CHALLENGE
+    ============================================= */
+    #challenge {
+      background: var(--charcoal-mid);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #challenge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-warm), transparent);
+    }
+
+    .challenge-stat-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+
+    .challenge-stat {
+      background: var(--charcoal);
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .challenge-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--burgundy-light);
+      line-height: 1;
+    }
+
+    .challenge-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .challenge-card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--burgundy);
+      padding: 1.8rem;
+    }
+
+    .challenge-card h4 {
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .challenge-card p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 2rem;
+      margin: 3rem 0;
+      background: rgba(201, 169, 110, 0.05);
+    }
+
+    .pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--cream-dim);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       SECTION 2: THE OPPORTUNITY
+    ============================================= */
+    #opportunity {
+      position: relative;
+      background: url('images/food-spread.jpg') center center / cover no-repeat fixed;
+    }
+
+    #opportunity::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.88);
+      pointer-events: none;
+    }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 680px) {
+      .opportunity-grid { grid-template-columns: 1fr; }
+    }
+
+    .opportunity-card {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opportunity-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--olive), transparent);
+    }
+
+    .opportunity-card.featured::after {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .opportunity-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .opportunity-card.featured .opportunity-tag {
+      color: var(--gold);
+    }
+
+    .opportunity-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--cream);
+    }
+
+    .opportunity-card p {
+      font-size: 0.88rem;
+    }
+
+    .opportunity-bottom {
+      margin-top: 3.5rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(107, 124, 94, 0.12), rgba(26, 26, 26, 0));
+      border: 1px solid rgba(107, 124, 94, 0.25);
+    }
+
+    .opportunity-bottom p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+
+    /* =============================================
+       SECTION 3: STRATEGY
+    ============================================= */
+    #strategy {
+      background: url('images/atmosphere.jpg') center center / cover no-repeat fixed;
+      position: relative;
+    }
+
+    #strategy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.9);
+      pointer-events: none;
+    }
+
+    .strategy-pillars {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .pillar {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .pillar { grid-template-columns: 1fr; }
+    }
+
+    .pillar-number-col {
+      background: var(--charcoal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      padding: 2rem 1rem;
+    }
+
+    .pillar-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--border);
+      line-height: 1;
+      font-style: italic;
+    }
+
+    .pillar-body {
+      padding: 2rem 2rem 2rem 2rem;
+    }
+
+    .pillar-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-label.local { color: var(--olive-light); }
+    .pillar-label.community { color: var(--gold); }
+    .pillar-label.digital { color: #7ba7bc; }
+    .pillar-label.media { color: var(--burgundy-light); }
+    .pillar-label.warning { color: #c17f53; }
+
+    .pillar-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--cream);
+    }
+
+    .pillar-body p {
+      font-size: 0.87rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pillar-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pillar-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.7rem;
+      background: rgba(245, 240, 232, 0.06);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .warning-box {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(193, 127, 83, 0.08), transparent);
+      border: 1px solid rgba(193, 127, 83, 0.25);
+      border-left: 3px solid #c17f53;
+    }
+
+    .warning-box h4 {
+      color: #c17f53;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .warning-box p {
+      font-size: 0.88rem;
+    }
+
+    /* =============================================
+       SECTION 4: EDDM
+    ============================================= */
+    #eddm {
+      position: relative;
+      background: url('images/exterior.jpg') center top / cover no-repeat fixed;
+    }
+
+    #eddm::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.85);
+      pointer-events: none;
+    }
+
+    .eddm-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 760px) {
+      .eddm-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .eddm-facts {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .eddm-fact {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem 1.4rem;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+    }
+
+    .eddm-fact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(107, 124, 94, 0.18);
+      border: 1px solid rgba(107, 124, 94, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+
+    .eddm-fact-body h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+
+    .eddm-fact-body p {
+      font-size: 0.82rem;
+    }
+
+    .eddm-map-placeholder {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eddm-map-inner {
+      aspect-ratio: 1;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(107, 124, 94, 0.18) 0%, transparent 70%);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-pin {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--burgundy-light);
+      border: 2px solid var(--cream);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .map-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px dashed rgba(107, 124, 94, 0.4);
+    }
+
+    .map-ring-1 { width: 80px; height: 80px; }
+    .map-ring-2 { width: 140px; height: 140px; }
+    .map-ring-3 { width: 200px; height: 200px; }
+
+    .map-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .eddm-neighborhoods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .neighborhood-tag {
+      font-size: 0.68rem;
+      padding: 0.25rem 0.6rem;
+      background: rgba(107, 124, 94, 0.12);
+      border: 1px solid rgba(107, 124, 94, 0.25);
+      color: var(--olive-light);
+    }
+
+    .eddm-cost-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .eddm-cost-item {
+      background: var(--charcoal-mid);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .eddm-cost-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--olive-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .eddm-cost-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* =============================================
+       SECTION 5: TIMELINE
+    ============================================= */
+    #timeline {
+      background: var(--charcoal-mid);
+    }
+
+    #timeline::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-warm), transparent);
+      margin-bottom: 0;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .timeline-grid { grid-template-columns: 1fr; }
+    }
+
+    .timeline-month {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .timeline-month-header {
+      padding: 1.5rem 1.8rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .timeline-month-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--border);
+      line-height: 1;
+      font-style: italic;
+    }
+
+    .timeline-month-meta {
+      text-align: right;
+    }
+
+    .timeline-month-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-month-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--cream);
+    }
+
+    .timeline-month-theme {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      margin: 0 1.8rem 0;
+      display: inline-block;
+    }
+
+    .theme-foundation { background: rgba(107, 124, 94, 0.15); color: var(--olive-light); }
+    .theme-activation { background: rgba(201, 169, 110, 0.12); color: var(--gold); }
+    .theme-momentum   { background: rgba(114, 47, 55, 0.15);   color: var(--burgundy-light); }
+
+    .timeline-items {
+      padding: 1.2rem 1.8rem 1.8rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+      color: rgba(245, 240, 232, 0.72);
+    }
+
+    .timeline-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--olive-light);
+      flex-shrink: 0;
+      margin-top: 0.55em;
+    }
+
+    /* =============================================
+       SECTION 6: OUTCOMES
+    ============================================= */
+    #outcomes {
+      position: relative;
+    }
+
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .outcome-card {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      padding: 2rem 1.8rem;
+    }
+
+    .outcome-metric {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--olive-light);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .outcome-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .outcome-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .outcomes-bottom {
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(114, 47, 55, 0.1), rgba(26, 26, 26, 0));
+      border: 1px solid rgba(114, 47, 55, 0.2);
+    }
+
+    .outcomes-bottom h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--cream);
+    }
+
+    .outcomes-bottom p {
+      font-size: 0.9rem;
+    }
+
+    /* =============================================
+       SECTION 7: INVESTMENT
+    ============================================= */
+    #investment {
+      background: var(--charcoal-mid);
+    }
+
+    #investment::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-warm), transparent);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    .pricing-card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pricing-card.recommended {
+      border-color: var(--gold);
+    }
+
+    .pricing-card.recommended::after {
+      content: 'Recommended';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      background: var(--gold);
+      padding: 0.25rem 0.6rem;
+    }
+
+    .pricing-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-tier {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .pricing-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .pricing-dollar {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--cream);
+      line-height: 1;
+    }
+
+    .pricing-per {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-body {
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.83rem;
+      color: rgba(245, 240, 232, 0.72);
+      line-height: 1.5;
+    }
+
+    .pricing-feature::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid var(--olive);
+      flex-shrink: 0;
+      margin-top: 0.1em;
+    }
+
+    .pricing-feature.plus {
+      color: var(--cream);
+    }
+
+    .pricing-feature.plus::before {
+      background: var(--olive-dim);
+      border-color: var(--olive);
+    }
+
+    .pricing-card.recommended .pricing-feature.plus::before {
+      background: rgba(201, 169, 110, 0.25);
+      border-color: var(--gold);
+    }
+
+    .pricing-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 1.2rem 1.8rem;
+      background: rgba(245, 240, 232, 0.03);
+      border: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .pricing-footer-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    /* =============================================
+       SECTION 8: NEXT STEPS
+    ============================================= */
+    #next-steps {
+      position: relative;
+      overflow: hidden;
+      background: url('images/wine-glass.webp') center center / cover no-repeat fixed;
+    }
+
+    #next-steps::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.88);
+      pointer-events: none;
+    }
+
+    .next-steps-inner {
+      max-width: 620px;
+    }
+
+    .cta-block {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border-warm);
+    }
+
+    .cta-block h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--cream);
+    }
+
+    .cta-block p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      .cta-contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .cta-contact-item {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      padding: 1rem 1.2rem;
+    }
+
+    .cta-contact-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-contact-value {
+      font-size: 0.9rem;
+      color: var(--cream);
+    }
+
+    .validity-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .steps-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--olive);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--olive-light);
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      padding-top: 0.3rem;
+    }
+
+    .step-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-text p {
+      font-size: 0.82rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: #111111;
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .footer-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-confidential {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(160, 152, 128, 0.5);
+      margin-top: 0.5rem;
+    }
+
+    /* =============================================
+       DIVIDERS & UTILITIES
+    ============================================= */
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2.5rem 0;
+    }
+
+    .divider--center {
+      margin: 2.5rem auto;
+    }
+
+    .text-center { text-align: center; }
+
+    /* =============================================
+       PRINT STYLES
+    ============================================= */
+    @media print {
+      #site-nav { display: none; }
+      section { padding: 48px 0; break-inside: avoid; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      body { background: white; color: black; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* =============================================
+       MOBILE
+    ============================================= */
+    @media (max-width: 600px) {
+      section { padding: 70px 0; }
+      .container { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .challenge-stat-bar { grid-template-columns: 1fr 1fr; }
+      .eddm-cost-bar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       STICKY NAV
+  ============================================= -->
+  <nav id="site-nav" role="navigation" aria-label="Proposal navigation">
+    <span class="nav-wordmark">Ulivo DC</span>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#challenge" data-section="challenge">Challenge</a></li>
+      <li><a href="#opportunity" data-section="opportunity">Opportunity</a></li>
+      <li><a href="#strategy" data-section="strategy">Strategy</a></li>
+      <li><a href="#eddm" data-section="eddm">EDDM</a></li>
+      <li><a href="#timeline" data-section="timeline">Timeline</a></li>
+      <li><a href="#investment" data-section="investment">Investment</a></li>
+      <li><a href="#next-steps" data-section="next-steps">Next Steps</a></li>
+    </ul>
+  </nav>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section id="hero">
+    <div class="container">
+
+      <div class="hero-eyebrow fade-in">
+        Marketing Proposal — Spring/Summer 2026
+      </div>
+
+      <h1 class="hero-headline fade-in fade-in--delay-1">
+        You survived the opening.<br>
+        <em>Now comes the hard part.</em>
+      </h1>
+
+      <p class="hero-subline fade-in fade-in--delay-2">
+        A sustained marketing strategy for Ulivo DC
+      </p>
+
+      <div class="hero-divider fade-in fade-in--delay-2"></div>
+
+      <p class="hero-body fade-in fade-in--delay-3">
+        The first wave of business comes easy — friends, family, curiosity. The real test is what happens when that fades. The next six months will determine whether Ulivo becomes a neighborhood institution or a cautionary tale about a restaurant that couldn't outlast its opening buzz.
+      </p>
+
+      <div class="hero-meta fade-in fade-in--delay-4">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Prepared for</span>
+          <span class="hero-meta-value">Tim Monaghan</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Location</span>
+          <span class="hero-meta-value">2737 Sherman Ave NW, DC</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Proposal date</span>
+          <span class="hero-meta-value">March 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Term</span>
+          <span class="hero-meta-value">3-month engagement</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 1: THE CHALLENGE
+  ============================================= -->
+  <section id="challenge">
+    <div class="container">
+
+      <div class="section-number fade-in">01</div>
+      <h2 class="section-title fade-in fade-in--delay-1">The <em>challenge</em><br>every new restaurant faces</h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        The honeymoon is real — and it ends. Understanding the pattern is the first step to building something that outlasts it.
+      </p>
+
+      <div class="challenge-stat-bar fade-in fade-in--delay-2">
+        <div class="challenge-stat">
+          <div class="challenge-stat-number">60%</div>
+          <div class="challenge-stat-label">of restaurants close within the first year</div>
+        </div>
+        <div class="challenge-stat">
+          <div class="challenge-stat-number">80%</div>
+          <div class="challenge-stat-label">don't see year five — industry average</div>
+        </div>
+        <div class="challenge-stat">
+          <div class="challenge-stat-number">30+</div>
+          <div class="challenge-stat-label">Italian restaurants in NW DC alone</div>
+        </div>
+        <div class="challenge-stat">
+          <div class="challenge-stat-number">Mos. 6–18</div>
+          <div class="challenge-stat-label">the critical window most restaurants ignore</div>
+        </div>
+      </div>
+
+      <div class="challenge-grid fade-in fade-in--delay-3">
+        <div class="challenge-card">
+          <h4>The buzz dies faster than you think</h4>
+          <p>Opening energy runs on novelty. Once the local curiosity is satisfied, the automatic traffic stops. You're no longer the new place — you're just a restaurant competing for the same limited dining-out budget as every other spot in a two-mile radius.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>Walk-in only means you can't predict covers</h4>
+          <p>No reservations removes friction for guests — but it also means you have almost no demand signal. You can't look at a booking sheet on Tuesday and know what Wednesday looks like. Slow services can sneak up on you without warning systems in place.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>Limited hours amplify every empty seat</h4>
+          <p>Wed–Sat plus Last Sunday brunch. That's a tight window. Every slow service costs more proportionally. You don't have five nights a week to average out a bad Wednesday — every service has to work as hard as possible.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>DC is a graveyard for good restaurants</h4>
+          <p>Exceptional food is table stakes. Columbia Heights has become a strong dining corridor, but that means more competition for the same neighborhood regulars. Without a deliberate strategy to build loyalty and awareness, good food alone isn't enough.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>You won't see the decline coming</h4>
+          <p>This is the most dangerous part. Traffic can drop gradually, reviews can stagnate, Instagram engagement can plateau — and none of it feels alarming week to week. Until you look up and it's been three months of declining covers and you're not sure why.</p>
+        </div>
+        <div class="challenge-card">
+          <h4>One-time visitors ≠ a business</h4>
+          <p>Getting people in the door once is only the beginning. Converting a first visit into a regular — someone who comes back monthly, brings people in, and leaves a review — requires deliberate follow-through that most restaurants never build.</p>
+        </div>
+      </div>
+
+      <div class="pullquote fade-in">
+        <p>"The restaurants that make it aren't the ones with the best opening weekend. They're the ones that built systems for the slow Tuesday in February."</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 2: THE OPPORTUNITY
+  ============================================= -->
+  <section id="opportunity">
+    <div class="container">
+
+      <div class="section-number fade-in">02</div>
+      <h2 class="section-title fade-in fade-in--delay-1">What Ulivo has<br><em>that most don't</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        Every restaurant has a story. Few have one worth telling. Ulivo has genuine differentiation — it just needs to be activated.
+      </p>
+
+      <div class="opportunity-grid fade-in fade-in--delay-2">
+        <div class="opportunity-card featured">
+          <span class="opportunity-tag">The Story</span>
+          <h3>A real pivot, not a PR arc</h3>
+          <p>Tim's career change into hospitality, Nick's craft in the kitchen, a hyper-specific regional focus on Piedmont cuisine — these aren't marketing constructs. They're the authentic narrative that differentiates Ulivo from every other "Italian" restaurant in DC. Authenticity is the rarest currency in food media right now, and you have it.</p>
+        </div>
+        <div class="opportunity-card">
+          <span class="opportunity-tag">The Format</span>
+          <h3>Walk-in only as a positioning asset</h3>
+          <p>What seems like an operational constraint is actually a brand signal. It communicates confidence and intention. In a city of reservation-only hotspots, "just walk in" is a genuinely distinctive offer. Last Sunday brunch is a recurring editorial hook.</p>
+        </div>
+        <div class="opportunity-card">
+          <span class="opportunity-tag">The Neighborhood</span>
+          <h3>Columbia Heights is still becoming something</h3>
+          <p>This is a neighborhood in demographic transition — growing income, growing food culture curiosity, growing appetite for places that feel like destinations rather than conveniences. The timing is right to become the anchor restaurant this neighborhood remembers opening.</p>
+        </div>
+        <div class="opportunity-card featured">
+          <span class="opportunity-tag">The Brand</span>
+          <h3>Elevated but approachable — and it shows</h3>
+          <p>Ulivo doesn't feel stuffy. The vibe is moody and considered without being intimidating. That's a genuinely hard balance to strike, and it makes the brand legible to a wide range of guests — date nights, solo diners, birthday celebrations, neighborhood regulars. Each of these is a distinct marketing segment.</p>
+        </div>
+      </div>
+
+      <div class="opportunity-bottom fade-in">
+        <p>These aren't gaps to be filled — they're assets to be amplified. The marketing strategy isn't about inventing a story for Ulivo. It's about making sure the right people hear the one that already exists.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 3: STRATEGY
+  ============================================= -->
+  <section id="strategy">
+    <div class="container">
+
+      <div class="section-number fade-in">03</div>
+      <h2 class="section-title fade-in fade-in--delay-1">The <em>strategy</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        Five interconnected pillars, built to compound. Not a campaign — a system. Each piece reinforces the others and generates data that improves the whole.
+      </p>
+
+      <div class="strategy-pillars">
+
+        <div class="pillar fade-in">
+          <div class="pillar-number-col">
+            <span class="pillar-number">I</span>
+          </div>
+          <div class="pillar-body">
+            <span class="pillar-label local">Local Visibility</span>
+            <h3>Show up when DC is searching</h3>
+            <p>When someone searches "Italian restaurant Columbia Heights" or "walk-in pasta DC" on Google, Ulivo needs to appear — and look compelling when it does. Google Business Profile optimization, targeted local SEO, and an active review generation strategy make you findable by the people most likely to walk through the door tonight.</p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Google Business Profile</span>
+              <span class="pillar-tag">Local SEO</span>
+              <span class="pillar-tag">Review generation</span>
+              <span class="pillar-tag">Directory presence</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-in fade-in--delay-1">
+          <div class="pillar-number-col">
+            <span class="pillar-number">II</span>
+          </div>
+          <div class="pillar-body">
+            <span class="pillar-label community">Community &amp; Neighborhood</span>
+            <h3>Become part of the neighborhood fabric</h3>
+            <p>Your best regulars don't live across the city — they live within eight blocks. EDDM mail campaigns, cross-promotions with neighboring businesses, Columbia Heights community group presence, and local event participation build the kind of ambient awareness that turns neighbors into regulars. This is the long game.</p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">EDDM campaigns</span>
+              <span class="pillar-tag">Business cross-promos</span>
+              <span class="pillar-tag">Community groups</span>
+              <span class="pillar-tag">Neighborhood events</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-in fade-in--delay-2">
+          <div class="pillar-number-col">
+            <span class="pillar-number">III</span>
+          </div>
+          <div class="pillar-body">
+            <span class="pillar-label digital">Digital Presence</span>
+            <h3>Build owned channels that don't depend on algorithms</h3>
+            <p>Instagram is rented space — the algorithm decides who sees your content. An email list is yours. A well-optimized website ranks for years. The digital strategy prioritizes building assets you control: a compelling Instagram presence that drives follows, a growing email list you can reach directly, and website SEO that compounds over time.</p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Instagram strategy</span>
+              <span class="pillar-tag">Email list building</span>
+              <span class="pillar-tag">Welcome sequence</span>
+              <span class="pillar-tag">Website SEO</span>
+              <span class="pillar-tag">Monthly newsletter</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-in fade-in--delay-3">
+          <div class="pillar-number-col">
+            <span class="pillar-number">IV</span>
+          </div>
+          <div class="pillar-body">
+            <span class="pillar-label media">Earned Media &amp; PR</span>
+            <h3>Get the publications DC diners trust to write about you</h3>
+            <p>Eater DC, The Infatuation, Washingtonian — these are the platforms that drive destination dining decisions in this city. An earned media placement can generate more traffic than months of Instagram posting. We build a targeted media list, craft the right angles (the Piedmont story, the walk-in-only format, Last Sunday brunch), and pitch consistently. Creator dinners amplify reach in parallel.</p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Eater DC</span>
+              <span class="pillar-tag">The Infatuation</span>
+              <span class="pillar-tag">Washingtonian</span>
+              <span class="pillar-tag">Creator dinners</span>
+              <span class="pillar-tag">Last Sunday hook</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-in fade-in--delay-4">
+          <div class="pillar-number-col">
+            <span class="pillar-number">V</span>
+          </div>
+          <div class="pillar-body">
+            <span class="pillar-label warning">Early Warning System</span>
+            <h3>Know when something's wrong before it becomes a crisis</h3>
+            <p>This is the pillar most marketing agencies leave out. Monthly KPI tracking across Google Business insights, Instagram engagement trends, and walk-in pattern data (simple staff surveys: "How did you hear about us?") builds a baseline. Once we have a baseline, we can see deviations. When metrics drop by a defined threshold, pre-planned marketing levers get activated. No more guessing, no more reacting three months too late.</p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Monthly KPI dashboard</span>
+              <span class="pillar-tag">Seasonal benchmarks</span>
+              <span class="pillar-tag">Trigger-based action plans</span>
+              <span class="pillar-tag">Quarterly reviews</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="warning-box fade-in">
+        <h4>On the early warning system</h4>
+        <p>The goal isn't to panic at every normal fluctuation. Seasonal dips happen. Slow Wednesdays happen. The goal is to distinguish between expected variation and a genuine downward trend — and to have the playbook already written before you need it. That's the difference between managing your marketing and being managed by it.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 4: EDDM
+  ============================================= -->
+  <section id="eddm">
+    <div class="container">
+
+      <div class="section-number fade-in">04</div>
+      <h2 class="section-title fade-in fade-in--delay-1">EDDM — <em>reaching your neighbors</em><br>before they find someone else</h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        Every Door Direct Mail is one of the most underused tools in restaurant marketing. While everyone fights for attention online, a well-designed postcard on a kitchen counter reaches people who may never follow you on Instagram.
+      </p>
+
+      <div class="eddm-layout fade-in fade-in--delay-2">
+
+        <div class="eddm-facts">
+          <div class="eddm-fact">
+            <div class="eddm-fact-icon" aria-hidden="true">✉</div>
+            <div class="eddm-fact-body">
+              <h4>What it is</h4>
+              <p>USPS's Every Door Direct Mail program lets you mail to every address on selected postal routes — no mailing list needed. You pick the routes, they deliver to every door. Simple, targeted, tangible.</p>
+            </div>
+          </div>
+          <div class="eddm-fact">
+            <div class="eddm-fact-icon" aria-hidden="true">📍</div>
+            <div class="eddm-fact-body">
+              <h4>Why it works for restaurants</h4>
+              <p>Hyper-local reach in a 1–2 mile radius. Reaches people who live close enough to become regulars, but may not be active on social media or searching for Italian food. Physical mail has significantly higher recall than digital ads for local service businesses.</p>
+            </div>
+          </div>
+          <div class="eddm-fact">
+            <div class="eddm-fact-icon" aria-hidden="true">🗓</div>
+            <div class="eddm-fact-body">
+              <h4>Cadence &amp; timing</h4>
+              <p>First drop in Month 2, timed to an upcoming Last Sunday brunch date and/or a seasonal menu change. Monthly or bi-monthly drops thereafter, adjusted based on traffic data. Design is included — we handle creative, you approve.</p>
+            </div>
+          </div>
+          <div class="eddm-fact">
+            <div class="eddm-fact-icon" aria-hidden="true">📬</div>
+            <div class="eddm-fact-body">
+              <h4>What goes on the mailer</h4>
+              <p>Oversized postcard (6.5"×9" or larger). Last Sunday brunch date, seasonal menu highlight, first-visit incentive (complimentary amaro, a shared plate offer, etc.). QR code to email list signup or Instagram. Clean, moody design that feels like Ulivo, not a coupon flyer.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="eddm-map-placeholder">
+          <div class="eddm-map-inner" aria-label="Target delivery radius map illustration">
+            <div class="map-ring map-ring-3"></div>
+            <div class="map-ring map-ring-2"></div>
+            <div class="map-ring map-ring-1"></div>
+            <div class="map-pin"></div>
+            <p class="map-label" style="position: absolute; bottom: 18%; font-size: 0.65rem; color: var(--text-muted);">2737 Sherman Ave NW</p>
+          </div>
+          <p style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;">Target neighborhoods</p>
+          <div class="eddm-neighborhoods">
+            <span class="neighborhood-tag">Columbia Heights</span>
+            <span class="neighborhood-tag">Park View</span>
+            <span class="neighborhood-tag">Petworth</span>
+            <span class="neighborhood-tag">Pleasant Plains</span>
+            <span class="neighborhood-tag">Adams Morgan</span>
+            <span class="neighborhood-tag">Mt. Pleasant</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="eddm-cost-bar fade-in">
+        <div class="eddm-cost-item">
+          <div class="eddm-cost-number">5–10K</div>
+          <div class="eddm-cost-label">households per drop</div>
+        </div>
+        <div class="eddm-cost-item">
+          <div class="eddm-cost-number">~$0.20</div>
+          <div class="eddm-cost-label">USPS EDDM rate per piece</div>
+        </div>
+        <div class="eddm-cost-item">
+          <div class="eddm-cost-number">$1–2K</div>
+          <div class="eddm-cost-label">estimated cost per drop (print + postage)</div>
+        </div>
+      </div>
+
+      <p class="fade-in" style="margin-top: 1.2rem; font-size: 0.82rem; color: var(--text-muted);">
+        Note: Printing and postage costs are separate from retainer fees. Design is included in all service tiers.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 5: TIMELINE
+  ============================================= -->
+  <section id="timeline">
+    <div class="container">
+
+      <div class="section-number fade-in">05</div>
+      <h2 class="section-title fade-in fade-in--delay-1">Three months.<br><em>Foundation to momentum.</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        The first 90 days establish the infrastructure, activate the community channels, and deliver the first measurable results. Month four onward runs on the system we've built.
+      </p>
+
+      <div class="timeline-grid fade-in fade-in--delay-2">
+
+        <div class="timeline-month">
+          <div class="timeline-month-header">
+            <div class="timeline-month-num">01</div>
+            <div class="timeline-month-meta">
+              <div class="timeline-month-label">Month</div>
+              <div class="timeline-month-name">April</div>
+            </div>
+          </div>
+          <div style="padding: 0.8rem 1.8rem 0;">
+            <span class="timeline-month-theme theme-foundation">Foundation</span>
+          </div>
+          <ul class="timeline-items">
+            <li class="timeline-item">Google Business Profile full setup and optimization</li>
+            <li class="timeline-item">Email capture system — Mailchimp + in-restaurant QR codes</li>
+            <li class="timeline-item">Instagram content calendar launch</li>
+            <li class="timeline-item">Brand voice &amp; messaging framework document</li>
+            <li class="timeline-item">EDDM route selection and first mailer design begins</li>
+            <li class="timeline-item">Media list compilation — DC food editors &amp; creators</li>
+            <li class="timeline-item">KPI baseline established — the "before" snapshot</li>
+          </ul>
+        </div>
+
+        <div class="timeline-month">
+          <div class="timeline-month-header">
+            <div class="timeline-month-num">02</div>
+            <div class="timeline-month-meta">
+              <div class="timeline-month-label">Month</div>
+              <div class="timeline-month-name">May</div>
+            </div>
+          </div>
+          <div style="padding: 0.8rem 1.8rem 0;">
+            <span class="timeline-month-theme theme-activation">Activation</span>
+          </div>
+          <ul class="timeline-items">
+            <li class="timeline-item">First EDDM drop — targeted spring mailer</li>
+            <li class="timeline-item">PR outreach to Eater DC, The Infatuation, Washingtonian</li>
+            <li class="timeline-item">First creator/influencer hosted dinner</li>
+            <li class="timeline-item">Last Sunday brunch promotion campaign</li>
+            <li class="timeline-item">Email welcome sequence goes live</li>
+            <li class="timeline-item">Community partnership outreach — neighboring businesses</li>
+            <li class="timeline-item">Google review generation campaign begins</li>
+          </ul>
+        </div>
+
+        <div class="timeline-month">
+          <div class="timeline-month-header">
+            <div class="timeline-month-num">03</div>
+            <div class="timeline-month-meta">
+              <div class="timeline-month-label">Month</div>
+              <div class="timeline-month-name">June</div>
+            </div>
+          </div>
+          <div style="padding: 0.8rem 1.8rem 0;">
+            <span class="timeline-month-theme theme-momentum">Momentum</span>
+          </div>
+          <ul class="timeline-items">
+            <li class="timeline-item">Second EDDM drop (monthly cadence) — summer menu focus</li>
+            <li class="timeline-item">Summer menu transition content across channels</li>
+            <li class="timeline-item">UGC (user-generated content) campaign launch</li>
+            <li class="timeline-item">First paid Instagram boost test — controlled budget</li>
+            <li class="timeline-item">Month 1–2 performance review &amp; analysis</li>
+            <li class="timeline-item">Strategy adjustment based on early data signals</li>
+            <li class="timeline-item">Q2 report delivery &amp; Q3 plan draft</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 6: OUTCOMES
+  ============================================= -->
+  <section id="outcomes">
+    <div class="container">
+
+      <div class="section-number fade-in">06</div>
+      <h2 class="section-title fade-in fade-in--delay-1">What you'll <em>see</em><br>at the end of 90 days</h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        These are honest, conservative targets — not hype. The numbers matter, but the more important outcome is having a marketing infrastructure that runs beyond month three.
+      </p>
+
+      <div class="outcomes-grid fade-in fade-in--delay-2">
+        <div class="outcome-card">
+          <div class="outcome-metric">+300–500</div>
+          <div class="outcome-label">Instagram followers</div>
+          <div class="outcome-desc">Net new followers over 3 months, driven by consistent content and creator amplification</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-metric">150–250</div>
+          <div class="outcome-label">Email subscribers</div>
+          <div class="outcome-desc">Built from zero via in-restaurant QR codes and digital touchpoints — owned, permanent</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-metric">+15</div>
+          <div class="outcome-label">New Google reviews</div>
+          <div class="outcome-desc">Targeted review generation strategy, improving search visibility and social proof</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-metric">10–20K</div>
+          <div class="outcome-label">Households reached via EDDM</div>
+          <div class="outcome-desc">Physical mailer touchpoints in Columbia Heights, Park View, Petworth, and beyond</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-metric">2–3</div>
+          <div class="outcome-label">Earned media placements</div>
+          <div class="outcome-desc">Target: at least one major DC food publication feature or notable online write-up</div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-metric">1</div>
+          <div class="outcome-label">Functioning early warning system</div>
+          <div class="outcome-desc">Monthly dashboard showing traffic trends, engagement benchmarks, and trigger-based action plans</div>
+        </div>
+      </div>
+
+      <div class="outcomes-bottom fade-in">
+        <h3>The metric that matters most</h3>
+        <p>Numbers aside, the primary output of month three is a repeatable system — not a one-time push. A functioning email list, an active content engine, an established media relationship, and a dashboard that tells you what's happening before it becomes a problem. That's the infrastructure that carries Ulivo into year two and beyond.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 7: INVESTMENT
+  ============================================= -->
+  <section id="investment">
+    <div class="container">
+
+      <div class="section-number fade-in">07</div>
+      <h2 class="section-title fade-in fade-in--delay-1">The <em>investment</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        Three tiers designed for different stages and appetites. All include the foundational strategic work — the difference is in the level of execution and hands-on support.
+      </p>
+
+      <div class="pricing-grid fade-in fade-in--delay-2">
+
+        <!-- Tier 1 -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-tier">Tier 1</div>
+            <div class="pricing-name">Foundation</div>
+            <div class="pricing-amount">
+              <span class="pricing-dollar">$</span>
+              <span class="pricing-number">1,500</span>
+              <span class="pricing-per">/month</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li class="pricing-feature plus">Instagram content strategy &amp; calendar — client executes</li>
+              <li class="pricing-feature plus">Google Business Profile optimization &amp; ongoing management</li>
+              <li class="pricing-feature plus">Monthly email newsletter — template + copy provided</li>
+              <li class="pricing-feature plus">Monthly KPI report with trend analysis</li>
+              <li class="pricing-feature plus">EDDM strategy (1 drop per quarter, design included)</li>
+              <li class="pricing-feature plus">Quarterly strategy review call</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tier 2 (Recommended) -->
+        <div class="pricing-card recommended">
+          <div class="pricing-header">
+            <div class="pricing-tier">Tier 2</div>
+            <div class="pricing-name">Growth</div>
+            <div class="pricing-amount">
+              <span class="pricing-dollar">$</span>
+              <span class="pricing-number">2,500</span>
+              <span class="pricing-per">/month</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li class="pricing-feature">Everything in Foundation, plus:</li>
+              <li class="pricing-feature plus">Instagram content creation — 4–5 posts/week, Reels, Stories</li>
+              <li class="pricing-feature plus">Email automation setup — welcome sequence + monthly sends</li>
+              <li class="pricing-feature plus">PR outreach &amp; media relations (Eater, Infatuation, Washingtonian)</li>
+              <li class="pricing-feature plus">2 creator/influencer dinners per quarter</li>
+              <li class="pricing-feature plus">EDDM monthly drops (design included, print/postage separate)</li>
+              <li class="pricing-feature plus">Bi-weekly strategy calls</li>
+              <li class="pricing-feature plus">Early warning dashboard with trigger-based action plans</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-tier">Tier 3</div>
+            <div class="pricing-name">Full Service</div>
+            <div class="pricing-amount">
+              <span class="pricing-dollar">$</span>
+              <span class="pricing-number">4,000</span>
+              <span class="pricing-per">/month</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li class="pricing-feature">Everything in Growth, plus:</li>
+              <li class="pricing-feature plus">Full social media management — posting, engagement, DMs</li>
+              <li class="pricing-feature plus">Website SEO optimization</li>
+              <li class="pricing-feature plus">Paid social media management (ad spend separate)</li>
+              <li class="pricing-feature plus">Event planning &amp; coordination — Last Sunday amplification, special events</li>
+              <li class="pricing-feature plus">Weekly strategy calls</li>
+              <li class="pricing-feature plus">Priority response time</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pricing-note fade-in">
+        <strong>EDDM note:</strong> Printing and postage costs are separate from all retainer tiers, estimated at $1,000–$2,000 per drop depending on route selection and volume. Mailer design is included in all tiers.
+      </div>
+
+      <p class="pricing-footer-note fade-in">3-month minimum engagement recommended to allow infrastructure to take root. Month-to-month after the initial term.</p>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 8: NEXT STEPS
+  ============================================= -->
+  <section id="next-steps">
+    <div class="container">
+
+      <div class="section-number fade-in">08</div>
+      <h2 class="section-title fade-in fade-in--delay-1">Let me know what<br><em>feels right for you.</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        Not trying to oversell anything here. It really depends on how much you're looking to hand off and what you want the next six months to look like. I just want to help where I can.
+      </p>
+
+      <div class="next-steps-inner">
+
+        <div class="steps-list fade-in fade-in--delay-2">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h4>Look this over</h4>
+              <p>No rush. Take a look at the tiers and think about what makes sense for where Ulivo is right now and where you want it to be.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h4>Let's chat</h4>
+              <p>We can hop on a quick call or you're welcome to swing by the studio — whatever's easier. We'll figure out the right starting point together.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h4>Start whenever you're ready</h4>
+              <p>Month one is all foundation work. No urgency theater — we just build the right infrastructure before turning anything on.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-block fade-in fade-in--delay-3">
+          <h3>Hit me up whenever.</h3>
+          <p>Call, text, whatever works. Not trying to waste your time — just want to help out where I can.</p>
+          <div class="cta-contact-grid">
+            <div class="cta-contact-item">
+              <div class="cta-contact-label">Email</div>
+              <div class="cta-contact-value">[your@email.com]</div>
+            </div>
+            <div class="cta-contact-item">
+              <div class="cta-contact-label">Phone</div>
+              <div class="cta-contact-value">[your number]</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-wordmark">Ulivo DC</span>
+          <span class="footer-tagline">Marketing Proposal — Spring/Summer 2026</span>
+        </div>
+        <div class="footer-right">
+          <div class="footer-meta">
+            Prepared for Tim Monaghan, Ulivo DC<br>
+            2737 Sherman Ave NW, Washington DC<br>
+            March 2026
+          </div>
+          <div class="footer-confidential">Confidential &amp; Proprietary</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       VANILLA JS: Scroll animations + nav highlight
+  ============================================= -->
+  <script>
+    // Fade-in on scroll
+    (function () {
+      var fadeEls = document.querySelectorAll('.fade-in');
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      fadeEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Active nav link on scroll
+    (function () {
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('#nav-links a');
+
+      var sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(function (link) {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.35 });
+
+      sections.forEach(function (section) {
+        sectionObserver.observe(section);
+      });
+    })();
+  </script>
+
+</body>
+</html>
