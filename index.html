@@ -937,6 +937,181 @@
     }
 
     /* =============================================
+       SECTION 6.5: FINANCIAL CASE
+    ============================================= */
+    #financials {
+      position: relative;
+      background: url('images/plating.webp') center center / cover no-repeat fixed;
+    }
+
+    #financials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.92);
+      pointer-events: none;
+    }
+
+    .fin-revenue-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 680px) {
+      .fin-revenue-grid { grid-template-columns: 1fr; }
+    }
+
+    .fin-revenue-cell {
+      background: var(--charcoal);
+      padding: 2rem 1.8rem;
+      text-align: center;
+    }
+
+    .fin-revenue-cell.highlight {
+      background: var(--charcoal-light);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .fin-revenue-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .fin-revenue-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .fin-revenue-cell.highlight .fin-revenue-number {
+      color: var(--gold);
+    }
+
+    .fin-revenue-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .fin-assumptions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      padding: 1.5rem 2rem;
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border);
+    }
+
+    .fin-assumption {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .fin-assumption-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .fin-assumption-value {
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .fin-roi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 680px) {
+      .fin-roi-grid { grid-template-columns: 1fr; }
+    }
+
+    .fin-roi-card {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .fin-roi-card.best {
+      border-color: var(--olive);
+      background: linear-gradient(135deg, rgba(107, 124, 94, 0.12), var(--charcoal-light));
+    }
+
+    .fin-roi-target {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .fin-roi-revenue {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .fin-roi-card.best .fin-roi-revenue {
+      color: var(--olive-light);
+    }
+
+    .fin-roi-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .fin-roi-multiplier {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .fin-breakeven {
+      padding: 2.5rem;
+      background: linear-gradient(135deg, rgba(201, 169, 110, 0.08), rgba(26, 26, 26, 0));
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      border-left: 3px solid var(--gold);
+    }
+
+    .fin-breakeven h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--cream);
+    }
+
+    .fin-breakeven p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fin-breakeven p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =============================================
        SECTION 7: INVESTMENT
     ============================================= */
     #investment {
@@ -1314,6 +1489,7 @@
       <li><a href="#strategy" data-section="strategy">Strategy</a></li>
       <li><a href="#eddm" data-section="eddm">EDDM</a></li>
       <li><a href="#timeline" data-section="timeline">Timeline</a></li>
+      <li><a href="#financials" data-section="financials">Financials</a></li>
       <li><a href="#investment" data-section="investment">Investment</a></li>
       <li><a href="#next-steps" data-section="next-steps">Next Steps</a></li>
     </ul>
@@ -1809,6 +1985,96 @@
       <div class="outcomes-bottom fade-in">
         <h3>The metric that matters most</h3>
         <p>Numbers aside, the primary output of month three is a repeatable system — not a one-time push. A functioning email list, an active content engine, an established media relationship, and a dashboard that tells you what's happening before it becomes a problem. That's the infrastructure that carries Ulivo into year two and beyond.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECTION 6.5: FINANCIAL CASE
+  ============================================= -->
+  <section id="financials">
+    <div class="container">
+
+      <div class="section-number fade-in">$$</div>
+      <h2 class="section-title fade-in fade-in--delay-1">The math behind<br><em>the empty seats</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">
+        At 75% capacity, Ulivo is leaving real money on the table every week. Here's what the gap looks like — and what it takes to close it.
+      </p>
+
+      <div class="fin-assumptions fade-in fade-in--delay-2">
+        <div class="fin-assumption">
+          <span class="fin-assumption-label">Indoor seats</span>
+          <span class="fin-assumption-value">68 (per Washingtonian)</span>
+        </div>
+        <div class="fin-assumption">
+          <span class="fin-assumption-label">Patio</span>
+          <span class="fin-assumption-value">20 seats (seasonal)</span>
+        </div>
+        <div class="fin-assumption">
+          <span class="fin-assumption-label">Avg check</span>
+          <span class="fin-assumption-value">$28/person</span>
+        </div>
+        <div class="fin-assumption">
+          <span class="fin-assumption-label">Turns/service</span>
+          <span class="fin-assumption-value">1.5x</span>
+        </div>
+        <div class="fin-assumption">
+          <span class="fin-assumption-label">Services/week</span>
+          <span class="fin-assumption-value">5 (Wed-Sat)</span>
+        </div>
+        <div class="fin-assumption">
+          <span class="fin-assumption-label">Current occupancy</span>
+          <span class="fin-assumption-value">~75%</span>
+        </div>
+      </div>
+
+      <div class="fin-revenue-grid fade-in fade-in--delay-3">
+        <div class="fin-revenue-cell">
+          <div class="fin-revenue-label">At 75% capacity</div>
+          <div class="fin-revenue-number">$44,500</div>
+          <div class="fin-revenue-sub">monthly revenue</div>
+        </div>
+        <div class="fin-revenue-cell">
+          <div class="fin-revenue-label">At 100% capacity</div>
+          <div class="fin-revenue-number">$58,800</div>
+          <div class="fin-revenue-sub">monthly revenue</div>
+        </div>
+        <div class="fin-revenue-cell highlight">
+          <div class="fin-revenue-label">The gap</div>
+          <div class="fin-revenue-number">$14,300</div>
+          <div class="fin-revenue-sub">left on the table every month</div>
+        </div>
+      </div>
+
+      <h3 class="fade-in" style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--cream);">ROI at $2,500/month — what it takes to pay for itself</h3>
+
+      <div class="fin-roi-grid fade-in fade-in--delay-2">
+        <div class="fin-roi-card">
+          <div class="fin-roi-target">Move to 80%</div>
+          <div class="fin-roi-revenue">+$4,760</div>
+          <div class="fin-roi-label">additional monthly revenue</div>
+          <div class="fin-roi-multiplier">1.9x return</div>
+        </div>
+        <div class="fin-roi-card best">
+          <div class="fin-roi-target">Move to 85%</div>
+          <div class="fin-roi-revenue">+$9,520</div>
+          <div class="fin-roi-label">additional monthly revenue</div>
+          <div class="fin-roi-multiplier">3.8x return</div>
+        </div>
+        <div class="fin-roi-card">
+          <div class="fin-roi-target">Move to 90%</div>
+          <div class="fin-roi-revenue">+$14,280</div>
+          <div class="fin-roi-label">additional monthly revenue</div>
+          <div class="fin-roi-multiplier">5.7x return</div>
+        </div>
+      </div>
+
+      <div class="fin-breakeven fade-in fade-in--delay-3">
+        <h3>The breakeven is 3-4 extra tables per night.</h3>
+        <p>At $2,500/month, the marketing pays for itself with <strong>~90 additional covers per month</strong> — roughly 22 extra per week, or 4-5 more per service. That's 3 to 4 tables.</p>
+        <p>The annual gap between 75% and 100% occupancy is <strong>~$171,600 in unrealized revenue</strong>. Even a modest 5-point improvement in occupancy more than covers the cost of a sustained marketing program — and builds the infrastructure that compounds over time.</p>
+        <p style="margin-top: 1rem; color: var(--gold); font-style: italic; font-family: 'Playfair Display', serif;">Every empty seat on a Wednesday is revenue that doesn't come back.</p>
       </div>
 
     </div>
