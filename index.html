@@ -109,11 +109,48 @@
     .fade-in--delay-5 { transition-delay: 0.5s; }
 
     /* =============================================
+       CONFIDENTIAL BANNER
+    ============================================= */
+    #confidential-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 101;
+      background: var(--gold);
+      height: 28px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .banner-track {
+      display: flex;
+      white-space: nowrap;
+      animation: bannerScroll 20s linear infinite;
+    }
+
+    .banner-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      padding: 0 3rem;
+    }
+
+    @keyframes bannerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* =============================================
        STICKY NAV
     ============================================= */
     #site-nav {
       position: fixed;
-      top: 0;
+      top: 28px;
       left: 0;
       right: 0;
       z-index: 100;
@@ -1477,6 +1514,30 @@
   </style>
 </head>
 <body>
+
+  <!-- =============================================
+       CONFIDENTIAL BANNER
+  ============================================= -->
+  <div id="confidential-banner">
+    <div class="banner-track">
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+      <span class="banner-text">Confidential & Proprietary</span>
+    </div>
+  </div>
 
   <!-- =============================================
        STICKY NAV
