@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ulivo DC — The Team Behind the Work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:    #1a1a1a;
+      --charcoal-mid: #242424;
+      --charcoal-light: #2e2e2e;
+      --cream:       #f5f0e8;
+      --cream-dim:   #ede7d8;
+      --olive:       #6b7c5e;
+      --olive-light: #8a9e79;
+      --burgundy:    #722f37;
+      --burgundy-light: #8f3c46;
+      --gold:        #c9a96e;
+      --text-primary: #f5f0e8;
+      --text-muted:  #c4b89e;
+      --border:      rgba(245,240,232,0.1);
+      --border-warm: rgba(201,169,110,0.2);
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(107, 124, 94, 0.08) 0%, transparent 60%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-back {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: opacity 0.2s;
+    }
+    .hero-back:hover { opacity: 0.7; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--olive-light);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(245, 240, 232, 0.75);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-stat-bar {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* =============================================
+       SECTION SHARED
+    ============================================= */
+    section { padding: 6rem 0; position: relative; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .section-title em { font-style: italic; color: var(--olive-light); }
+
+    .section-intro {
+      font-size: 1rem;
+      color: rgba(245, 240, 232, 0.78);
+      max-width: 680px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* =============================================
+       THE DIFFERENCE
+    ============================================= */
+    .comparison {
+      background: var(--charcoal-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .compare-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .compare-col {
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .compare-col.old {
+      background: var(--charcoal-light);
+      opacity: 0.7;
+    }
+
+    .compare-col.new {
+      background: linear-gradient(135deg, rgba(107, 124, 94, 0.1), var(--charcoal-light));
+      border-color: var(--olive);
+    }
+
+    .compare-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .compare-col.old .compare-tag { color: var(--text-muted); }
+    .compare-col.new .compare-tag { color: var(--olive-light); }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .compare-list li {
+      font-size: 0.88rem;
+      color: rgba(245, 240, 232, 0.8);
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .compare-col.old .compare-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .compare-col.new .compare-list li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: var(--olive-light);
+      font-weight: 700;
+    }
+
+    /* =============================================
+       AGENT TEAM
+    ============================================= */
+    .team-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .team-intro .section-label,
+    .team-intro .section-title,
+    .team-intro .section-intro {
+      text-align: center;
+    }
+
+    .team-intro .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .org-chart {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    /* Director row */
+    .org-director {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .org-connector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .connector-line {
+      width: 1px;
+      height: 40px;
+      background: var(--border-warm);
+      position: relative;
+    }
+
+    .connector-line::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: var(--border-warm);
+    }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .agent-card {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+    }
+
+    .agent-card:hover {
+      border-color: var(--border-warm);
+      transform: translateY(-2px);
+    }
+
+    .agent-card.director {
+      background: linear-gradient(135deg, rgba(201, 169, 110, 0.08), var(--charcoal-light));
+      border-color: var(--gold);
+      max-width: 280px;
+    }
+
+    .agent-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.2rem;
+    }
+
+    .agent-icon.strategy  { background: rgba(201, 169, 110, 0.15); border: 1px solid rgba(201, 169, 110, 0.3); }
+    .agent-icon.content   { background: rgba(107, 124, 94, 0.15);  border: 1px solid rgba(107, 124, 94, 0.3); }
+    .agent-icon.growth    { background: rgba(114, 47, 55, 0.18);   border: 1px solid rgba(143, 60, 70, 0.3); }
+    .agent-icon.data      { background: rgba(100, 140, 180, 0.12); border: 1px solid rgba(100, 140, 180, 0.25); }
+    .agent-icon.director-icon { background: rgba(201, 169, 110, 0.2); border: 1px solid rgba(201, 169, 110, 0.4); }
+
+    .agent-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .agent-role {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .agent-desc {
+      font-size: 0.76rem;
+      color: rgba(245, 240, 232, 0.65);
+      line-height: 1.5;
+    }
+
+    .agent-status {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-top: 0.8rem;
+    }
+
+    .agent-status.active {
+      background: rgba(107, 124, 94, 0.2);
+      color: var(--olive-light);
+      border: 1px solid rgba(107, 124, 94, 0.3);
+    }
+
+    /* =============================================
+       WORKFLOW
+    ============================================= */
+    .workflow-section {
+      background: var(--charcoal-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    @media (max-width: 760px) {
+      .workflow-steps { grid-template-columns: 1fr; }
+    }
+
+    .workflow-step {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      border-right: 1px solid var(--border);
+    }
+
+    .workflow-step:last-child { border-right: none; }
+
+    @media (max-width: 760px) {
+      .workflow-step {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .workflow-step:last-child { border-bottom: none; }
+    }
+
+    .workflow-num {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(201, 169, 110, 0.25);
+      margin-bottom: 0.8rem;
+    }
+
+    .workflow-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .workflow-desc {
+      font-size: 0.76rem;
+      color: rgba(245, 240, 232, 0.65);
+      line-height: 1.5;
+    }
+
+    .workflow-agents {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.3rem;
+      margin-top: 0.8rem;
+    }
+
+    .workflow-agent-tag {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      background: rgba(107, 124, 94, 0.12);
+      color: var(--olive-light);
+      border: 1px solid rgba(107, 124, 94, 0.2);
+    }
+
+    /* =============================================
+       ADVANTAGE
+    ============================================= */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .advantage-grid { grid-template-columns: 1fr; }
+    }
+
+    .advantage-card {
+      padding: 2rem;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--olive);
+    }
+
+    .advantage-num {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: rgba(201, 169, 110, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .advantage-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .advantage-desc {
+      font-size: 0.82rem;
+      color: rgba(245, 240, 232, 0.7);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       BOTTOM CTA
+    ============================================= */
+    .bottom-cta {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: var(--charcoal-mid);
+      border-top: 1px solid var(--border);
+    }
+
+    .bottom-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .bottom-cta h2 em { font-style: italic; color: var(--olive-light); }
+
+    .bottom-cta p {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.7);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn-back {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--charcoal);
+      background: var(--gold);
+      transition: opacity 0.2s;
+    }
+    .btn-back:hover { opacity: 0.85; }
+
+    /* =============================================
+       ANIMATIONS
+    ============================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in--delay-1 { transition-delay: 0.15s; }
+    .fade-in--delay-2 { transition-delay: 0.3s; }
+    .fade-in--delay-3 { transition-delay: 0.45s; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    .footer-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .footer-confidential {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <a href="index.html" class="hero-back fade-in">&larr; Back to proposal</a>
+      <h1 class="fade-in fade-in--delay-1">This isn't one person<br>with a laptop.<br><em>It's a system.</em></h1>
+      <p class="hero-sub fade-in fade-in--delay-2">
+        Behind every deliverable is a coordinated team of specialized AI agents, each trained for a specific marketing discipline. One strategist directs them. Here's how it works.
+      </p>
+      <div class="hero-stat-bar fade-in fade-in--delay-3">
+        <div class="hero-stat">
+          <div class="hero-stat-number">12</div>
+          <div class="hero-stat-label">Specialist agents</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">24/7</div>
+          <div class="hero-stat-label">Always available</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">1</div>
+          <div class="hero-stat-label">Point of contact</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       THE DIFFERENCE
+  ============================================= -->
+  <section class="comparison">
+    <div class="container">
+      <div class="section-label fade-in">The difference</div>
+      <h2 class="section-title fade-in fade-in--delay-1">What a typical freelancer gives you<br>vs. <em>what this system delivers</em></h2>
+
+      <div class="compare-grid fade-in fade-in--delay-2">
+        <div class="compare-col old">
+          <div class="compare-tag">Typical freelancer or agency</div>
+          <ul class="compare-list">
+            <li>One person doing everything, stretched thin</li>
+            <li>Generic templates adapted to your brand</li>
+            <li>Monthly reports that look backward</li>
+            <li>Available during business hours</li>
+            <li>Gut-feel decisions on what to post</li>
+            <li>Same approach for every client</li>
+            <li>You wait for deliverables</li>
+          </ul>
+        </div>
+        <div class="compare-col new">
+          <div class="compare-tag">This system</div>
+          <ul class="compare-list">
+            <li>Dedicated specialists for each discipline</li>
+            <li>Everything built from scratch for Ulivo</li>
+            <li>Real-time monitoring with early warning triggers</li>
+            <li>Research and analysis running continuously</li>
+            <li>Data-driven content strategy with testing</li>
+            <li>Custom workflows tuned to restaurant marketing</li>
+            <li>Faster turnaround on everything</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       THE TEAM
+  ============================================= -->
+  <section>
+    <div class="container">
+      <div class="team-intro">
+        <div class="section-label fade-in">The team</div>
+        <h2 class="section-title fade-in fade-in--delay-1">Your <em>marketing department</em></h2>
+        <p class="section-intro fade-in fade-in--delay-2">
+          Each of these specialists handles one piece of the puzzle. They coordinate automatically, share context, and work in parallel. You deal with one person. The system handles the rest.
+        </p>
+      </div>
+
+      <div class="org-chart fade-in fade-in--delay-2">
+
+        <!-- Director -->
+        <div class="org-director">
+          <div class="agent-card director">
+            <div class="agent-icon director-icon">&#9733;</div>
+            <div class="agent-name">Campaign Director</div>
+            <div class="agent-role">Strategy & Orchestration</div>
+            <div class="agent-desc">Coordinates the entire team. Sets priorities, assigns tasks, reviews output, and makes sure everything aligns with Ulivo's goals.</div>
+          </div>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="team-grid">
+
+          <div class="agent-card">
+            <div class="agent-icon content">&#9998;</div>
+            <div class="agent-name">Copywriter</div>
+            <div class="agent-role">Content creation</div>
+            <div class="agent-desc">Writes social posts, email copy, mailer text, captions. Matches Ulivo's voice every time.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon growth">&#9878;</div>
+            <div class="agent-name">SEO Specialist</div>
+            <div class="agent-role">Search visibility</div>
+            <div class="agent-desc">Google Business Profile, local search rankings, review strategy, schema markup.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon strategy">&#9993;</div>
+            <div class="agent-name">Email Wizard</div>
+            <div class="agent-role">Email campaigns</div>
+            <div class="agent-desc">Welcome sequences, newsletters, re-engagement campaigns. Writes, designs, and optimizes.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon data">&#9783;</div>
+            <div class="agent-name">Researcher</div>
+            <div class="agent-role">Market intelligence</div>
+            <div class="agent-desc">Competitor analysis, neighborhood demographics, dining trends, pricing research.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon growth">&#9733;</div>
+            <div class="agent-name">Lead Generator</div>
+            <div class="agent-role">New customer acquisition</div>
+            <div class="agent-desc">EDDM targeting, local partnerships, influencer identification, community outreach.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon content">&#9881;</div>
+            <div class="agent-name">Brand Guardian</div>
+            <div class="agent-role">Quality control</div>
+            <div class="agent-desc">Reviews every piece of content before it goes out. Makes sure the tone, look, and message are always on-brand.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon strategy">&#9730;</div>
+            <div class="agent-name">Retention Specialist</div>
+            <div class="agent-role">Repeat business</div>
+            <div class="agent-desc">Turns first-timers into regulars. Re-engagement campaigns, loyalty nudges, seasonal outreach.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon data">&#9776;</div>
+            <div class="agent-name">Analytics Lead</div>
+            <div class="agent-role">Performance tracking</div>
+            <div class="agent-desc">Tracks what's working, flags what isn't. Builds the early warning system for slow periods.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon growth">&#9888;</div>
+            <div class="agent-name">Conversion Optimizer</div>
+            <div class="agent-role">Turn interest into visits</div>
+            <div class="agent-desc">Optimizes every touchpoint. Landing pages, email CTAs, social links, reservation flow.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon content">&#9998;</div>
+            <div class="agent-name">Social Strategist</div>
+            <div class="agent-role">Social media</div>
+            <div class="agent-desc">Content calendars, posting strategy, engagement tactics, hashtag research, Reels and Stories.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon strategy">&#9878;</div>
+            <div class="agent-name">PR Outreach</div>
+            <div class="agent-role">Media relations</div>
+            <div class="agent-desc">Pitches to Eater DC, The Infatuation, Washingtonian. Builds press relationships that keep Ulivo in the conversation.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+          <div class="agent-card">
+            <div class="agent-icon data">&#9783;</div>
+            <div class="agent-name">Campaign Planner</div>
+            <div class="agent-role">Strategic planning</div>
+            <div class="agent-desc">Content calendars, campaign timelines, seasonal strategies, budget allocation, A/B test design.</div>
+            <div class="agent-status active">Active</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       HOW IT WORKS
+  ============================================= -->
+  <section class="workflow-section">
+    <div class="container">
+      <div class="section-label fade-in">How it works</div>
+      <h2 class="section-title fade-in fade-in--delay-1" style="margin-bottom: 3rem;">From request to <em>deliverable</em></h2>
+
+      <div class="workflow-steps fade-in fade-in--delay-2">
+        <div class="workflow-step">
+          <div class="workflow-num">01</div>
+          <div class="workflow-title">You say what you need</div>
+          <div class="workflow-desc">"We need to push Last Sunday brunch" or "Tuesday nights are dead" or "what should we post this week?"</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">02</div>
+          <div class="workflow-title">The right agents activate</div>
+          <div class="workflow-desc">The system identifies which specialists are needed and assigns them simultaneously. No bottleneck.</div>
+          <div class="workflow-agents">
+            <span class="workflow-agent-tag">Researcher</span>
+            <span class="workflow-agent-tag">Copywriter</span>
+            <span class="workflow-agent-tag">Planner</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">03</div>
+          <div class="workflow-title">Work happens in parallel</div>
+          <div class="workflow-desc">While one agent researches competitors, another drafts copy, another plans the campaign calendar. All at once.</div>
+          <div class="workflow-agents">
+            <span class="workflow-agent-tag">SEO</span>
+            <span class="workflow-agent-tag">Email</span>
+            <span class="workflow-agent-tag">Social</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">04</div>
+          <div class="workflow-title">Quality checked, delivered</div>
+          <div class="workflow-desc">Brand Guardian reviews everything for tone and consistency. You get polished, ready-to-use deliverables.</div>
+          <div class="workflow-agents">
+            <span class="workflow-agent-tag">Brand check</span>
+            <span class="workflow-agent-tag">CRO review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       WHY THIS MATTERS
+  ============================================= -->
+  <section>
+    <div class="container">
+      <div class="section-label fade-in">Why this matters for Ulivo</div>
+      <h2 class="section-title fade-in fade-in--delay-1">What this actually <em>means for you</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2">This isn't about technology for the sake of it. It's about what it lets us do for your restaurant that a traditional setup can't.</p>
+
+      <div class="advantage-grid fade-in fade-in--delay-2">
+        <div class="advantage-card">
+          <div class="advantage-num">01</div>
+          <div class="advantage-title">Nothing falls through the cracks</div>
+          <div class="advantage-desc">One person can't do SEO, write emails, manage social, analyze data, and pitch press simultaneously. This system can. Every channel gets proper attention, every week.</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">02</div>
+          <div class="advantage-title">Faster than any agency</div>
+          <div class="advantage-desc">Need a mailer designed for a last-minute event? A social campaign for a seasonal menu change? What takes agencies a week takes this system hours.</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">03</div>
+          <div class="advantage-title">Early warning system</div>
+          <div class="advantage-desc">The analytics agent watches your traffic, reviews, and engagement continuously. If Tuesday nights start dropping, you know before it becomes a problem — and have a plan ready.</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">04</div>
+          <div class="advantage-title">Consistent brand voice</div>
+          <div class="advantage-desc">Everything gets reviewed by the Brand Guardian before it goes out. Your Instagram, your emails, your mailers — they all sound like Ulivo, every time.</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">05</div>
+          <div class="advantage-title">Data-driven, not guesswork</div>
+          <div class="advantage-desc">Every decision is backed by research. What to post, when to send, which neighborhoods to target, which press outlets to pitch. No gut feelings — just what works.</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">06</div>
+          <div class="advantage-title">You still deal with one person</div>
+          <div class="advantage-desc">All of this runs behind the scenes. You text me, you call me, you tell me what you need. The system is the engine. I'm the driver.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       BOTTOM CTA
+  ============================================= -->
+  <section class="bottom-cta">
+    <h2 class="fade-in">Ready to see the <em>proposal?</em></h2>
+    <p class="fade-in fade-in--delay-1">This is the team that's ready to go to work for Ulivo.</p>
+    <a href="index.html#investment" class="btn-back fade-in fade-in--delay-2">View the proposal &rarr;</a>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <span class="footer-wordmark">Ulivo DC</span>
+          <span class="footer-tagline">Marketing System Overview</span>
+        </div>
+        <div class="footer-confidential">Confidential & Proprietary</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var fadeEls = document.querySelectorAll('.fade-in');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      fadeEls.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
