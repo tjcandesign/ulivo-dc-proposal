@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ulivo DC — Quick Wins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:    #1a1a1a;
+      --charcoal-mid: #242424;
+      --charcoal-light: #2e2e2e;
+      --cream:       #f5f0e8;
+      --olive:       #6b7c5e;
+      --olive-light: #8a9e79;
+      --burgundy:    #722f37;
+      --burgundy-light: #8f3c46;
+      --gold:        #c9a96e;
+      --red-urgent:  #c94a4a;
+      --amber:       #d4a843;
+      --text-primary: #f5f0e8;
+      --text-muted:  #c4b89e;
+      --border:      rgba(245,240,232,0.1);
+      --border-warm: rgba(201,169,110,0.2);
+    }
+
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(201, 74, 74, 0.06) 0%, transparent 60%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-back {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: opacity 0.2s;
+    }
+    .hero-back:hover { opacity: 0.7; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--red-urgent); }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(245, 240, 232, 0.75);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-priority-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .priority-item { text-align: center; }
+
+    .priority-count {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .priority-count.urgent { color: var(--red-urgent); }
+    .priority-count.important { color: var(--amber); }
+    .priority-count.growth { color: var(--olive-light); }
+
+    .priority-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* =============================================
+       SHARED
+    ============================================= */
+    section { padding: 5rem 0; position: relative; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .section-title em { font-style: italic; color: var(--olive-light); }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.78);
+      max-width: 680px;
+      margin-bottom: 3rem;
+    }
+
+    /* =============================================
+       PRIORITY BADGE
+    ============================================= */
+    .priority-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .priority-badge.urgent {
+      background: rgba(201, 74, 74, 0.15);
+      color: var(--red-urgent);
+      border: 1px solid rgba(201, 74, 74, 0.3);
+    }
+
+    .priority-badge.important {
+      background: rgba(212, 168, 67, 0.12);
+      color: var(--amber);
+      border: 1px solid rgba(212, 168, 67, 0.25);
+    }
+
+    .priority-badge.growth {
+      background: rgba(107, 124, 94, 0.15);
+      color: var(--olive-light);
+      border: 1px solid rgba(107, 124, 94, 0.3);
+    }
+
+    .priority-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .priority-badge.urgent .priority-dot { background: var(--red-urgent); }
+    .priority-badge.important .priority-dot { background: var(--amber); }
+    .priority-badge.growth .priority-dot { background: var(--olive-light); }
+
+    /* =============================================
+       WIN CARDS
+    ============================================= */
+    .win-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .win-section:nth-child(even) {
+      background: var(--charcoal-mid);
+    }
+
+    .win-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .win-number {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .win-section.urgent-section .win-number { color: rgba(201, 74, 74, 0.25); }
+    .win-section.important-section .win-number { color: rgba(212, 168, 67, 0.2); }
+    .win-section.growth-section .win-number { color: rgba(107, 124, 94, 0.2); }
+
+    .win-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .win-title em { font-style: italic; color: var(--olive-light); }
+
+    .win-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Problem / Solution layout */
+    .win-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .win-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    .win-problem, .win-solution {
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .win-problem {
+      background: var(--charcoal-light);
+      border-left: 3px solid var(--red-urgent);
+    }
+
+    .win-solution {
+      background: linear-gradient(135deg, rgba(107, 124, 94, 0.08), var(--charcoal-light));
+      border-left: 3px solid var(--olive);
+    }
+
+    .win-card-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .win-problem .win-card-label { color: var(--red-urgent); }
+    .win-solution .win-card-label { color: var(--olive-light); }
+
+    .win-card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .win-card-list li {
+      font-size: 0.85rem;
+      color: rgba(245, 240, 232, 0.8);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .win-problem .win-card-list li::before {
+      content: '!';
+      position: absolute;
+      left: 0;
+      color: var(--red-urgent);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    .win-solution .win-card-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--olive-light);
+      font-weight: 700;
+    }
+
+    /* Detail cards */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .detail-card {
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+
+    .detail-card h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+
+    .detail-card p {
+      font-size: 0.78rem;
+      color: rgba(245, 240, 232, 0.65);
+      line-height: 1.6;
+    }
+
+    /* Recommendation box */
+    .recommendation {
+      padding: 2rem 2.5rem;
+      background: linear-gradient(135deg, rgba(201, 169, 110, 0.06), rgba(26, 26, 26, 0));
+      border: 1px solid var(--border-warm);
+      border-left: 3px solid var(--gold);
+      margin-top: 2rem;
+    }
+
+    .recommendation h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .recommendation p {
+      font-size: 0.88rem;
+      color: rgba(245, 240, 232, 0.8);
+    }
+
+    .recommendation p + p { margin-top: 0.6rem; }
+
+    /* Parking info box */
+    .parking-box {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+    }
+
+    .parking-box h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+
+    .parking-timeline {
+      display: flex;
+      gap: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 48px;
+      margin-bottom: 1.2rem;
+    }
+
+    .parking-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.2;
+      padding: 0 0.5rem;
+    }
+
+    .parking-block.restricted {
+      background: rgba(201, 74, 74, 0.15);
+      color: var(--red-urgent);
+      border: 1px solid rgba(201, 74, 74, 0.2);
+      flex: 2;
+    }
+
+    .parking-block.window {
+      background: rgba(212, 168, 67, 0.12);
+      color: var(--amber);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+      flex: 2;
+    }
+
+    .parking-block.free {
+      background: rgba(107, 124, 94, 0.15);
+      color: var(--olive-light);
+      border: 1px solid rgba(107, 124, 94, 0.2);
+      flex: 3;
+    }
+
+    .parking-notes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .parking-notes li {
+      font-size: 0.78rem;
+      color: rgba(245, 240, 232, 0.7);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .parking-notes li::before {
+      content: '\2192';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* Reservation layout */
+    .res-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .res-layout { grid-template-columns: 1fr; }
+    }
+
+    .res-block {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .res-block.reserved {
+      background: linear-gradient(135deg, rgba(107, 124, 94, 0.1), var(--charcoal-light));
+      border-color: var(--olive);
+    }
+
+    .res-block.walkin {
+      background: var(--charcoal-light);
+    }
+
+    .res-time {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .res-type {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .res-block.reserved .res-type { color: var(--olive-light); }
+    .res-block.walkin .res-type { color: var(--text-muted); }
+
+    .res-desc {
+      font-size: 0.76rem;
+      color: rgba(245, 240, 232, 0.65);
+      line-height: 1.5;
+    }
+
+    /* Capacity bar */
+    .capacity-visual {
+      margin: 2rem 0;
+    }
+
+    .capacity-bar-outer {
+      height: 32px;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 0.8rem;
+    }
+
+    .capacity-reserved {
+      background: linear-gradient(90deg, rgba(107, 124, 94, 0.35), rgba(107, 124, 94, 0.5));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+    }
+
+    .capacity-walkin {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .capacity-legend {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .capacity-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    .legend-dot.reserved { background: rgba(107, 124, 94, 0.5); }
+    .legend-dot.walkin { background: rgba(245, 240, 232, 0.15); }
+
+    /* Review tone section */
+    .tone-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .tone-comparison { grid-template-columns: 1fr; }
+    }
+
+    .tone-card {
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+    }
+
+    .tone-card.bad {
+      background: var(--charcoal-light);
+      border-left: 3px solid var(--red-urgent);
+    }
+
+    .tone-card.good {
+      background: linear-gradient(135deg, rgba(107, 124, 94, 0.08), var(--charcoal-light));
+      border-left: 3px solid var(--olive);
+    }
+
+    .tone-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .tone-card.bad .tone-label { color: var(--red-urgent); }
+    .tone-card.good .tone-label { color: var(--olive-light); }
+
+    .tone-example {
+      font-size: 0.82rem;
+      color: rgba(245, 240, 232, 0.7);
+      font-style: italic;
+      line-height: 1.6;
+      padding: 1rem;
+      background: rgba(0,0,0,0.15);
+      border-left: 2px solid var(--border);
+    }
+
+    .tone-card.bad .tone-example { border-left-color: rgba(201, 74, 74, 0.3); }
+    .tone-card.good .tone-example { border-left-color: rgba(107, 124, 94, 0.3); }
+
+    /* Teacher section */
+    .teacher-approach {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .teacher-approach { grid-template-columns: 1fr; }
+    }
+
+    .teacher-step {
+      padding: 1.8rem;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .teacher-step-num {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: rgba(201, 169, 110, 0.2);
+      margin-bottom: 0.8rem;
+    }
+
+    .teacher-step h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .teacher-step p {
+      font-size: 0.76rem;
+      color: rgba(245, 240, 232, 0.65);
+      line-height: 1.5;
+    }
+
+    /* Summary grid */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .summary-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--charcoal-light);
+      border: 1px solid var(--border);
+    }
+
+    .summary-num {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .summary-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: var(--charcoal-mid);
+      border-top: 1px solid var(--border);
+    }
+
+    .bottom-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .bottom-cta h2 em { font-style: italic; color: var(--olive-light); }
+
+    .bottom-cta p {
+      font-size: 0.95rem;
+      color: rgba(245, 240, 232, 0.7);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    .btn-gold { color: var(--charcoal); background: var(--gold); }
+    .btn-outline { color: var(--gold); border: 1px solid var(--gold); background: transparent; margin-left: 1rem; }
+
+    @media (max-width: 500px) {
+      .btn-outline { margin-left: 0; margin-top: 0.8rem; }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in--delay-1 { transition-delay: 0.15s; }
+    .fade-in--delay-2 { transition-delay: 0.3s; }
+    .fade-in--delay-3 { transition-delay: 0.45s; }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+    .footer-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+    .footer-tagline {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .footer-confidential {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <a href="index.html" class="hero-back fade-in">&larr; Back to proposal</a>
+      <h1 class="fade-in fade-in--delay-1">Quick wins.<br><em>Right now.</em></h1>
+      <p class="hero-sub fade-in fade-in--delay-2">
+        These are things that are costing Ulivo customers today. Every week without fixing them is money left on the table and guests lost to confusion. Here's what needs to happen, in priority order.
+      </p>
+      <div class="hero-priority-bar fade-in fade-in--delay-3">
+        <div class="priority-item">
+          <div class="priority-count urgent">2</div>
+          <div class="priority-label">Urgent — fix this week</div>
+        </div>
+        <div class="priority-item">
+          <div class="priority-count important">2</div>
+          <div class="priority-label">Important — fix this month</div>
+        </div>
+        <div class="priority-item">
+          <div class="priority-count growth">1</div>
+          <div class="priority-label">Growth — build this quarter</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       WIN 1: RESERVATIONS
+  ============================================= -->
+  <section class="win-section urgent-section" id="reservations">
+    <div class="container">
+
+      <div class="priority-badge urgent fade-in">
+        <span class="priority-dot"></span> Urgent — losing customers now
+      </div>
+
+      <div class="win-header fade-in fade-in--delay-1">
+        <div class="win-number">01</div>
+        <div>
+          <div class="win-title">Reservations <em>don't exist</em></div>
+          <div class="win-subtitle">People are DMing the chef on Instagram trying to book a table. There's no system.</div>
+        </div>
+      </div>
+
+      <div class="win-grid fade-in fade-in--delay-2">
+        <div class="win-problem">
+          <div class="win-card-label">The problem</div>
+          <ul class="win-card-list">
+            <li>No reservation system anywhere — website, Google, phone</li>
+            <li>Out-of-neighborhood visitors won't risk the drive without a guaranteed table</li>
+            <li>People who read about Ulivo online can't plan a visit</li>
+            <li>Instagram DMs to the chef is not a booking system</li>
+            <li>Parking anxiety keeps suburban visitors from even trying</li>
+          </ul>
+        </div>
+        <div class="win-solution">
+          <div class="win-card-label">The fix</div>
+          <ul class="win-card-list">
+            <li>Two fixed reservation blocks per night: 5:00 PM and 7:00 PM</li>
+            <li>Everything else stays walk-in — preserves the neighborhood energy</li>
+            <li>Reserve 30% of seats for bookings, 70% walk-in</li>
+            <li>Add parking guide to booking confirmation emails</li>
+            <li>Simple system — Resy, OpenTable, or Yelp Reservations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Reservation blocks visual -->
+      <h4 class="fade-in" style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;">Proposed nightly schedule</h4>
+      <p class="fade-in" style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem;">Doors open at 3 PM. Two reservation windows. Everything else is walk-in.</p>
+
+      <div class="res-layout fade-in">
+        <div class="res-block walkin">
+          <div class="res-time">3–5</div>
+          <div class="res-type">Walk-in only</div>
+          <div class="res-desc">Early service. Neighborhood regulars, after-work crowd. No reservations needed — keeps it casual.</div>
+        </div>
+        <div class="res-block reserved">
+          <div class="res-time">5:00</div>
+          <div class="res-type">Reservation block 1</div>
+          <div class="res-desc">First seating. Perfect for families, early diners, people coming from outside the neighborhood who want a guaranteed table.</div>
+        </div>
+        <div class="res-block reserved">
+          <div class="res-time">7:00</div>
+          <div class="res-type">Reservation block 2</div>
+          <div class="res-desc">Second seating. Not a full turnover, but early 5pm tables will open up. Prime evening slot for planned visits, groups, date nights.</div>
+        </div>
+      </div>
+
+      <!-- Capacity recommendation -->
+      <div class="recommendation fade-in">
+        <h4>Capacity recommendation</h4>
+        <p>With ~88 seats (68 inside + 20 patio), we recommend reserving <strong>25–30 seats</strong> per block (~30% of capacity). This keeps 70% of the restaurant walk-in, which preserves the neighborhood feel and spontaneous energy that makes Ulivo work.</p>
+        <p>If reservation demand outpaces supply, that's a good problem — it creates scarcity and urgency. People who can't book will walk in earlier. People who book will feel like they got something special.</p>
+      </div>
+
+      <div class="capacity-visual fade-in">
+        <div class="capacity-bar-outer">
+          <div class="capacity-reserved" style="width: 30%;">Reserved (30%)</div>
+          <div class="capacity-walkin">Walk-ins (70%)</div>
+        </div>
+        <div class="capacity-legend">
+          <span><span class="legend-dot reserved"></span> 25–30 seats reserved per block</span>
+          <span><span class="legend-dot walkin"></span> ~60 seats walk-in</span>
+        </div>
+      </div>
+
+      <!-- Parking guide -->
+      <div class="parking-box fade-in">
+        <h4>Parking guide — include in every booking confirmation</h4>
+        <p style="font-size: 0.82rem; color: rgba(245,240,232,0.7); margin-bottom: 1.2rem;">This is the #1 anxiety for out-of-neighborhood visitors. A clear parking guide in the confirmation email removes the excuse not to come.</p>
+
+        <div class="parking-timeline">
+          <div class="parking-block restricted">Before 6:30 PM<br>Residential permit only</div>
+          <div class="parking-block window">6:30–8:30 PM<br>2-hr free parking</div>
+          <div class="parking-block free">After 8:30 PM<br>No enforcement until 9:30 AM</div>
+        </div>
+
+        <ul class="parking-notes">
+          <li><strong>7 PM reservation:</strong> Park after 6:30, arrive at 7. You're within the 2-hour window. By 8:30 enforcement ends — stay as long as you want.</li>
+          <li><strong>5 PM reservation:</strong> Street parking is tighter, but spots open as residents leave for the evening. Metered spots on Georgia Ave also available.</li>
+          <li><strong>The signs say "residential parking"</strong> — but that means non-residents get 2 hours free. People don't know this. We tell them.</li>
+          <li><strong>After 8:30 PM:</strong> No tickets. Your car can sit there overnight until 9:30 AM the next day. Zero risk.</li>
+          <li><strong>Circle the block.</strong> People are coming and going constantly. A spot always opens within a few minutes, within a couple blocks.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       WIN 2: GOOGLE BUSINESS PROFILE
+  ============================================= -->
+  <section class="win-section urgent-section" id="google">
+    <div class="container">
+
+      <div class="priority-badge urgent fade-in">
+        <span class="priority-dot"></span> Urgent — damaging first impressions
+      </div>
+
+      <div class="win-header fade-in fade-in--delay-1">
+        <div class="win-number">02</div>
+        <div>
+          <div class="win-title">Google still thinks this is <em>Capitosta</em></div>
+          <div class="win-subtitle">The name changed. Nothing else did. Photos, reviews, and responses are all wrong.</div>
+        </div>
+      </div>
+
+      <div class="win-grid fade-in fade-in--delay-2">
+        <div class="win-problem">
+          <div class="win-card-label">The problem</div>
+          <ul class="win-card-list">
+            <li>Google Business Profile still shows Capitosta photos</li>
+            <li>Old reviews reference a completely different restaurant</li>
+            <li>Owner photos haven't been updated with Ulivo's actual food</li>
+            <li>Review responses are dismissive and unwelcoming</li>
+            <li>People Googling "Ulivo DC" see a confusing, outdated profile</li>
+          </ul>
+        </div>
+        <div class="win-solution">
+          <div class="win-card-label">The fix</div>
+          <ul class="win-card-list">
+            <li>Upload all professional food photography as owner photos — immediately</li>
+            <li>Write new review responses — warm, welcoming, community-focused</li>
+            <li>Launch review generation campaign to bury old Capitosta content</li>
+            <li>Update business description, hours, menu link, reservation link</li>
+            <li>Add schema markup to website for rich search results</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Review tone -->
+      <h4 class="fade-in" style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;">Review response tone — before and after</h4>
+
+      <div class="tone-comparison fade-in">
+        <div class="tone-card bad">
+          <div class="tone-label">Current tone — defensive, dismissive</div>
+          <div class="tone-example">"We're a walk-in only restaurant. If you can't handle that, this probably isn't the place for you."</div>
+          <p style="font-size: 0.76rem; color: rgba(245,240,232,0.5); margin-top: 1rem;">This pushes away the exact people who want to become regulars. A reservation question is someone saying "I want to come." The answer should never make them feel stupid for asking.</p>
+        </div>
+        <div class="tone-card good">
+          <div class="tone-label">New tone — warm, neighborhood restaurant</div>
+          <div class="tone-example">"We'd love to have you! We're mostly walk-in and there's almost always room, but we're also rolling out a few reserved time slots at 5 and 7 for folks coming from further out. Can't wait to welcome you in."</div>
+          <p style="font-size: 0.76rem; color: rgba(245,240,232,0.5); margin-top: 1rem;">Every review response is a public advertisement. Future customers read these before deciding whether to visit. Welcoming tone converts browsers into diners.</p>
+        </div>
+      </div>
+
+      <div class="recommendation fade-in">
+        <h4>Photo strategy</h4>
+        <p>Professional photos from the website already exist. Upload them as owner photos immediately — these get priority placement over user-uploaded images. We can't delete old Capitosta reviews or their attached photos, but we can flood the profile with new, beautiful content that pushes old photos below the fold.</p>
+        <p>Goal: within 30 days, a Google search for "Ulivo DC" should show Ulivo's food, not Capitosta's.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       WIN 3: UBER EATS
+  ============================================= -->
+  <section class="win-section important-section" id="uber">
+    <div class="container">
+
+      <div class="priority-badge important fade-in">
+        <span class="priority-dot"></span> Important — missing revenue channel
+      </div>
+
+      <div class="win-header fade-in fade-in--delay-1">
+        <div class="win-number">03</div>
+        <div>
+          <div class="win-title">Uber Eats <em>doesn't know you exist</em></div>
+          <div class="win-subtitle">The profile isn't set up. No delivery, no pickup, no Uber navigation to the location.</div>
+        </div>
+      </div>
+
+      <div class="win-grid fade-in fade-in--delay-2">
+        <div class="win-problem">
+          <div class="win-card-label">The problem</div>
+          <ul class="win-card-list">
+            <li>Uber Eats business profile not configured</li>
+            <li>Restaurant doesn't appear in Uber Eats search results</li>
+            <li>No delivery or takeout ordering available</li>
+            <li>Uber drivers can't navigate to correct location</li>
+            <li>Missing an entire revenue channel and discovery platform</li>
+          </ul>
+        </div>
+        <div class="win-solution">
+          <div class="win-card-label">The fix</div>
+          <ul class="win-card-list">
+            <li>Set up Uber Eats merchant profile — menu, photos, hours, location</li>
+            <li>Configure delivery radius and pickup options</li>
+            <li>Set operating hours aligned with kitchen availability</li>
+            <li>Pin correct location for Uber driver navigation</li>
+            <li>Curate a delivery-friendly menu (not everything travels well)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recommendation fade-in">
+        <h4>Platform recommendation</h4>
+        <p>Start with Uber Eats for delivery + pickup. It also fixes the Uber navigation issue since drivers will have the correct pin. Consider adding DoorDash in month two once the Uber Eats workflow is dialed in. No need to launch both at once — get one running smoothly first.</p>
+        <p>Delivery menu should be curated, not the full menu. Pasta travels well. Delicate plating doesn't. We protect the brand by only offering items that arrive looking (and tasting) the way they should.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       WIN 4: REVIEW RESPONSE OVERHAUL
+  ============================================= -->
+  <section class="win-section important-section" id="reviews">
+    <div class="container">
+
+      <div class="priority-badge important fade-in">
+        <span class="priority-dot"></span> Important — first impression damage
+      </div>
+
+      <div class="win-header fade-in fade-in--delay-1">
+        <div class="win-number">04</div>
+        <div>
+          <div class="win-title">Review responses are <em>pushing people away</em></div>
+          <div class="win-subtitle">Every Google review response is a public ad. Right now, they're advertising attitude instead of hospitality.</div>
+        </div>
+      </div>
+
+      <div class="section-intro fade-in fade-in--delay-2">
+        Current responses to questions about reservations, parking, and how the restaurant works are coming across as dismissive. People reading these reviews are potential first-time visitors trying to figure out if this place is worth the trip. The tone needs to match the warmth of the actual dining experience.
+      </div>
+
+      <div class="detail-grid fade-in">
+        <div class="detail-card">
+          <h4>Respond to every review</h4>
+          <p>Positive or negative. A thoughtful response to a 3-star review can convert the reviewer AND every future reader into a customer.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Thank, don't defend</h4>
+          <p>Even unfair reviews. "Thanks for coming in — we'd love another shot to get it right" beats "well actually" every time.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Answer the real question</h4>
+          <p>"Do you take reservations?" means "I want to come." The answer should make them feel welcome, not corrected.</p>
+        </div>
+        <div class="detail-card">
+          <h4>Mention what's new</h4>
+          <p>Every response is a chance to say "we just launched our spring menu" or "our new pasta is incredible." Subtle marketing in every reply.</p>
+        </div>
+      </div>
+
+      <div class="recommendation fade-in">
+        <h4>Immediate action</h4>
+        <p>Go through every existing Google review response and rewrite the ones that read as dismissive or unwelcoming. This is a one-time cleanup that takes a couple hours but changes how every future visitor perceives the restaurant. We handle this in week one.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       WIN 5: TEACHER OUTREACH
+  ============================================= -->
+  <section class="win-section growth-section" id="teachers">
+    <div class="container">
+
+      <div class="priority-badge growth fade-in">
+        <span class="priority-dot"></span> Growth — build this quarter
+      </div>
+
+      <div class="win-header fade-in fade-in--delay-1">
+        <div class="win-number">05</div>
+        <div>
+          <div class="win-title">Teacher outreach — <em>trust-filtered marketing</em></div>
+          <div class="win-subtitle">Tim is a DC public school parent. That's not just a personal detail — it's a marketing channel.</div>
+        </div>
+      </div>
+
+      <div class="section-intro fade-in fade-in--delay-2">
+        Teachers are an ideal audience: they're local, they're social, and they eat together. But cold outreach doesn't work. This approach sends the message through the school itself — the trust filter that turns a flyer from junk mail into a recommendation.
+      </div>
+
+      <div class="teacher-approach fade-in">
+        <div class="teacher-step">
+          <div class="teacher-step-num">01</div>
+          <h4>Design the offer</h4>
+          <p>Half-price pasta for DC public school teachers. Clean, branded postcard that feels like Ulivo — not a coupon.</p>
+        </div>
+        <div class="teacher-step">
+          <div class="teacher-step-num">02</div>
+          <h4>Deliver through schools</h4>
+          <p>Bundle of postcards to the school office with a note from Tim as a parent. School puts one in each teacher's mailbox. Trust filter activated.</p>
+        </div>
+        <div class="teacher-step">
+          <div class="teacher-step-num">03</div>
+          <h4>Build the group booking</h4>
+          <p>Teachers talk. Offer a Teacher Appreciation group dinner — reserve the upstairs (~30 seats) for a school group. Now you've got a private event that fills a slow night.</p>
+        </div>
+      </div>
+
+      <div class="recommendation fade-in">
+        <h4>Why this works</h4>
+        <p>Teachers aren't immediate neighbors but they're in the DC area. They tell each other. They come as groups. They post on social media. One teacher dinner for 20 people generates word-of-mouth that reaches hundreds of parents and colleagues.</p>
+        <p>The reservation system enables this — a group of 8 teachers can book the 7pm block. The upstairs space enables larger events — 30 seats for a school appreciation night. The EDDM system can deliver the postcards to the school office with a personal note.</p>
+        <p>This is the kind of campaign that fills a Tuesday night and turns a one-time visit into a regular tradition.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       SUMMARY
+  ============================================= -->
+  <section style="background: var(--charcoal-mid); border-top: 1px solid var(--border);">
+    <div class="container" style="text-align: center;">
+
+      <div class="section-label fade-in" style="color: var(--gold);">The bottom line</div>
+      <h2 class="section-title fade-in fade-in--delay-1">Five fixes. <em>Immediate impact.</em></h2>
+      <p class="section-intro fade-in fade-in--delay-2" style="margin-left: auto; margin-right: auto; text-align: center;">
+        None of these are hard. All of them are overdue. The current provider has access to fix every single one of these and hasn't. That's the gap.
+      </p>
+
+      <div class="summary-grid fade-in fade-in--delay-2">
+        <div class="summary-item">
+          <div class="summary-num">0</div>
+          <div class="summary-label">Current reservation options</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num">0</div>
+          <div class="summary-label">Uber Eats presence</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num">100%</div>
+          <div class="summary-label">Google photos from old restaurant</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num">Week 1</div>
+          <div class="summary-label">All urgent fixes completed</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       BOTTOM CTA
+  ============================================= -->
+  <section class="bottom-cta">
+    <h2 class="fade-in">These shouldn't have to <em>wait.</em></h2>
+    <p class="fade-in fade-in--delay-1">Every week without a reservation system, a corrected Google profile, and a working delivery presence is customers who wanted to come but couldn't figure out how.</p>
+    <div class="fade-in fade-in--delay-2">
+      <a href="index.html#investment" class="btn btn-gold">View the proposal &rarr;</a>
+      <a href="team.html" class="btn btn-outline">Meet the team</a>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <span class="footer-wordmark">Ulivo DC</span>
+          <span class="footer-tagline">Quick Wins — Immediate Action Items</span>
+        </div>
+        <div class="footer-confidential">Confidential & Proprietary</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var fadeEls = document.querySelectorAll('.fade-in');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      fadeEls.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
