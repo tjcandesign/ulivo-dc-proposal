@@ -740,7 +740,8 @@
     .eddm-map-inner {
       aspect-ratio: 1;
       background:
-        radial-gradient(circle at 50% 50%, rgba(107, 124, 94, 0.18) 0%, transparent 70%);
+        linear-gradient(rgba(26, 26, 26, 0.42), rgba(26, 26, 26, 0.42)),
+        url('images/neighborhood-map.jpg') center center / cover no-repeat;
       border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
@@ -752,15 +753,17 @@
     }
 
     .map-pin {
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--burgundy-light);
       border: 2px solid var(--cream);
+      box-shadow: 0 0 12px rgba(143, 60, 70, 0.6), 0 0 24px rgba(143, 60, 70, 0.3);
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      z-index: 2;
     }
 
     .map-ring {
@@ -769,12 +772,12 @@
       left: 50%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
-      border: 1px dashed rgba(107, 124, 94, 0.4);
+      border: 1px dashed rgba(201, 169, 110, 0.45);
     }
 
-    .map-ring-1 { width: 80px; height: 80px; }
-    .map-ring-2 { width: 140px; height: 140px; }
-    .map-ring-3 { width: 200px; height: 200px; }
+    .map-ring-1 { width: 100px; height: 100px; }
+    .map-ring-2 { width: 180px; height: 180px; }
+    .map-ring-3 { width: 260px; height: 260px; }
 
     .map-label {
       font-size: 0.72rem;
